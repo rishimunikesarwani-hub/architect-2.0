@@ -1,0 +1,7 @@
+.git
+.env*
+.convex
+node_modules
+generated-output
+automated-tests
+sample-projects
