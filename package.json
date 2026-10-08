@@ -13,7 +13,8 @@
     "typecheck:backend": "tsc --project application/backend/tsconfig.json --noEmit",
     "hygiene": "node development-tools/check-hygiene.mjs",
     "check": "npm run hygiene && npm run typecheck:frontend && npm run typecheck:backend && npm test && npm run build",
-    "eval": "vitest run --config development-tools/vitest.config.ts automated-tests/workflow-scenarios.test.ts automated-tests/project-budget.test.ts"
+    "diagrams": "node development-tools/render-production-diagram.mjs && node development-tools/render-diagram.mjs && node development-tools/sync-diagram.mjs",
+    "eval": "node development-tools/run-evaluation.mjs"
   },
   "dependencies": {
     "@convex-dev/better-auth": "0.12.5",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "@edge-runtime/vm": "5.0.0",
+    "@resvg/resvg-js": "^2.6.2",
     "@types/node": "26.6.4",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
@@ -34,8 +36,5 @@
     "typescript": "7.0.2",
     "vite": "8.3.2",
     "vitest": "4.1.11"
-  },
-  "engines": {
-    "node": "^20.19.0 || >=22.12.0"
   }
 }

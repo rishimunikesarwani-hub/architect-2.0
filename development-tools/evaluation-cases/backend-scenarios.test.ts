@@ -9,8 +9,9 @@ import { importProjectFiles } from '../application/shared-logic/import-project';
 import { parseCloudState } from '../application/shared-logic/parse-cloud-state';
 import { ProjectSaveQueue } from '../application/shared-logic/project-save-queue';
 
-// These composed scenarios use in-memory Convex fixtures. No live account,
-// deployment, private baseline or source from another checkout is needed.
+// The comparison runner copies this file into each snapshot's test directory
+// and rewrites only the historical source paths. Never use ConvexHttpClient or
+// the deployed smoke script here: every account and request stays in convex-test.
 const modules = import.meta.glob('../application/backend/**/*.{ts,js}');
 const bytes = (value: string) => new TextEncoder().encode(value).length;
 type InputFile = Parameters<typeof importProjectFiles>[0][number];
@@ -103,7 +104,7 @@ describe('finite backend and source-fidelity evaluation', () => {
     expect(cards[0]).not.toHaveProperty('stateJson');
   }, 30_000);
 
-  it('rejects raw oversized state atomically when budget preparation is bypassed', async () => {
+  it('records the quality boundary: an accepted 300 KB import plus its initial backup exceeds the save budget and creates no partial app', async () => {
     const t = setup();
     const owner = await account(t, 'evaluation.capacity');
     const html = 'x'.repeat(300_000);
@@ -111,8 +112,8 @@ describe('finite backend and source-fidelity evaluation', () => {
     expect(imported[0].content).toBe(html);
     const project = createProject('Keep the supplied source', 'Custom', 'Capacity evaluation', 'import', imported);
     const serialized = payload(project);
-    // This deliberately bypasses fitProjectToBudget to test server rejection.
-    // project-budget.test.ts covers the normal 300 KB import/save success path.
+    // Passing this scenario records the limitation. It does not score the
+    // 300 KB import as a successful end-to-end app creation or exercise the UI.
     expect(bytes(serialized.stateJson)).toBeGreaterThan(550_000);
     expect(bytes(serialized.stateJson)).toBeGreaterThan(600_000);
     await expect(owner.client.mutation(api.projects.create, serialized)).rejects.toThrow('600 KB');

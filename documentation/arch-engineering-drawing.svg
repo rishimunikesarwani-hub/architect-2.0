@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1940" viewBox="0 0 2200 1940" role="img" aria-labelledby="title desc"><title id="title">Architect 2.0 - hosted prototype, verified development backend and proposed runtime</title><desc id="desc">The prototype is published at https://architect-2-weld.vercel.app with public source at https://github.com/rishimunikesarwani-hub/architect-2 as of 2026-10-06. The development backend is deployed with 15 passing live API checks for login ID authentication, department permissions and revision conflicts. Hosted Chrome owner and independent Edge member checks passed for session reload, shared edits, preserved conflicting drafts and explicit discard, live viewer controls, revocation/restoration and logout/re-entry. Browser signup was user-performed, not observed. After the user enabled Chrome file-access permission, hosted ZIP file-picker import of the exact two-file fixture into a new private Custom app passed, including preview interaction, a saved source edit and source/README persistence after reload. JSON source export and conflict-draft HTML arrival for the same synthetic QA app are verified by exact file hashes; no ZIP export is claimed. Google is deferred. AgentLibrary remains fictional; agent registry and runtime grants remain proposed.</desc><defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 1 L8 5 L0 9" fill="none" stroke="#52665b" stroke-width="1.5"/></marker><style>text{font-family:'Segoe UI',Arial,sans-serif;fill:#20362a}.title{font-size:42px;font-weight:700}.subtitle{font-size:23px;fill:#53665b}.section{font-size:25px;font-weight:700}.node-title{font-size:26px;font-weight:650}.body{font-size:21px}.small{font-size:19px;fill:#566a5e}.tag{font-size:15px;font-weight:700;letter-spacing:.6px}.label{font-size:18px;fill:#52665b}.edge{fill:none;stroke:#52665b;stroke-width:2;marker-end:url(#arrow)}.future{stroke-dasharray:8 6}</style></defs><rect width="2200" height="1940" fill="#f7f9f5"/>
+<text x="50" y="67" class="title">Architect 2.0 - engineering drawing</text>
+<text x="50" y="106" class="subtitle">Hosted prototype, verified development backend and inherited multiplayer direction - 2026-10-06</text>
+<rect x="50" y="134" width="445" height="39" rx="7" fill="#edf6ef" stroke="#6c9677"/>
+<text x="67" y="160" class="tag">HOSTED UI + DEV BACKEND</text>
+<rect x="530" y="134" width="445" height="39" rx="7" fill="#fff3d9" stroke="#bf9c56"/>
+<text x="547" y="160" class="tag">GOOGLE DEFERRED</text>
+<rect x="1010" y="134" width="445" height="39" rx="7" fill="#f1edfb" stroke="#9a85b8"/>
+<text x="1027" y="160" class="tag">UI SIMULATION</text>
+<rect x="1490" y="134" width="445" height="39" rx="7" fill="#f3f5f6" stroke="#93a0a7"/>
+<text x="1507" y="160" class="tag">FUTURE SERVICES</text>
+<text x="50" y="205" class="small" style="fill:#855f20">15/15 live API checks plus hosted Chrome/Edge acceptance: sessions, shared edits, conflict discard and permission changes verified.</text>
+<rect x="40" y="235" width="2120" height="980" rx="20" fill="#ffffff" stroke="#cbd8cb"/>
+<text x="67" y="278" class="section">01  APPLICATION AND SERVER ACCESS - HOSTED UI + VERIFIED DEV BACKEND</text>
+<text x="83" y="312" class="tag">BROWSER</text>
+<text x="780" y="312" class="tag">CONVEX DEVELOPMENT BACKEND</text>
+<text x="1530" y="312" class="tag">PROVIDER / DATA</text>
+<rect x="80" y="335" width="490" height="140" rx="14" fill="#edf6ef" stroke="#6c9677" stroke-width="1.5"/>
+<text x="102" y="365" class="tag">HOSTED CLIENT</text>
+<text x="102" y="404" class="node-title">React workspace</text>
+<text x="102" y="438" class="body">Guided + Developer views</text>
+<text x="102" y="467" class="body">Login ID form - department controls</text>
+<rect x="780" y="335" width="560" height="140" rx="14" fill="#edf6ef" stroke="#6c9677" stroke-width="1.5"/>
+<text x="802" y="365" class="tag">DEV API VERIFIED</text>
+<text x="802" y="404" class="node-title">Login ID + password</text>
+<text x="802" y="438" class="body">Username plugin - cross-domain session</text>
+<text x="802" y="467" class="body">Server identity - auth rate limits</text>
+<rect x="1530" y="335" width="560" height="140" rx="14" fill="#fff3d9" stroke="#bf9c56" stroke-width="1.5"/>
+<text x="1552" y="365" class="tag">DEFERRED</text>
+<text x="1552" y="404" class="node-title">Google OAuth</text>
+<text x="1552" y="438" class="body">Optional wiring retained</text>
+<text x="1552" y="467" class="body">Credentials and provider journey deferred</text>
+<path d="M570 405 H780" class="edge"/>
+<text x="620" y="387" class="label">sign in</text>
+<path d="M1340 405 H1530" class="edge future"/>
+<text x="1360" y="387" class="label">optional provider</text>
+<rect x="80" y="525" width="490" height="175" rx="14" fill="#edf6ef" stroke="#6c9677" stroke-width="1.5"/>
+<text x="102" y="555" class="tag">HOSTED CLIENT</text>
+<text x="102" y="594" class="node-title">Draft state + save queue</text>
+<text x="102" y="628" class="body">First edit uses its snapshot revision</text>
+<text x="102" y="657" class="body">Serial writes per app - dirty / blocked</text>
+<text x="102" y="686" class="body">Hold / retry / explicit remote acceptance</text>
+<rect x="780" y="525" width="560" height="175" rx="14" fill="#edf6ef" stroke="#6c9677" stroke-width="1.5"/>
+<text x="802" y="555" class="tag">DEV API VERIFIED</text>
+<text x="802" y="594" class="node-title">Project authorization</text>
+<text x="802" y="628" class="body">Owner / workspace admin: manage</text>
+<text x="802" y="657" class="body">Department editor: update; viewer: read</text>
+<text x="802" y="686" class="body">Recheck membership and grants per call</text>
+<rect x="1530" y="525" width="560" height="175" rx="14" fill="#edf6ef" stroke="#6c9677" stroke-width="1.5"/>
+<text x="1552" y="555" class="tag">DEV API VERIFIED</text>
+<text x="1552" y="594" class="node-title">Membership and project grants</text>
+<text x="1552" y="628" class="body">workspaces + departments</text>
+<text x="1552" y="657" class="body">workspaceMembers + projectGrants</text>
+<text x="1552" y="686" class="body">Project grants are not agent invoke grants</text>
+<path d="M1060 475 V525" class="edge"/>
+<text x="1080" y="509" class="label">validated session</text>
+<path d="M1340 610 H1530" class="edge"/>
+<text x="1365" y="590" class="label">role / grant lookup</text>
+<rect x="80" y="750" width="490" height="140" rx="14" fill="#edf6ef" stroke="#6c9677" stroke-width="1.5"/>
+<text x="102" y="780" class="tag">HOSTED CLIENT</text>
+<text x="102" y="819" class="node-title">Guest demo + source import</text>
+<text x="102" y="853" class="body">Browser-local storage; separate workspace</text>
+<text x="102" y="882" class="body">Bounded files / ZIP; credentials excluded</text>
+<rect x="80" y="940" width="490" height="175" rx="14" fill="#edf6ef" stroke="#6c9677" stroke-width="1.5"/>
+<text x="102" y="970" class="tag">HOSTED CLIENT</text>
+<text x="102" y="1009" class="node-title">Isolated HTML preview</text>
+<text x="102" y="1043" class="body">srcDoc - opaque origin - allow-scripts</text>
+<text x="102" y="1072" class="body">CSP restricts APIs, resources and forms</text>
+<text x="102" y="1101" class="body">No server / Python / framework runtime</text>
+<path d="M326 700 V728 H56 V1018 H80" class="edge"/>
+<text x="58" y="929" class="label">HTML</text>
+<rect x="780" y="750" width="560" height="350" rx="14" fill="#edf6ef" stroke="#6c9677" stroke-width="1.5"/>
+<text x="802" y="780" class="tag">DEV DEPLOYED</text>
+<text x="802" y="819" class="node-title">Authorized project operations</text>
+<text x="802" y="853" class="body">list: lightweight authorized project cards</text>
+<text x="802" y="882" class="body">watch: active full project or null on loss</text>
+<text x="802" y="911" class="body">get: explicit authorized full lookup</text>
+<text x="802" y="940" class="body">update: compare expectedRevision first</text>
+<text x="802" y="969" class="body">Conflict rejects; success increments revision</text>
+<text x="802" y="998" class="body">create / update / archive synchronize catalog</text>
+<text x="802" y="1027" class="body">No merge engine or simultaneous co-editing</text>
+<rect x="1530" y="750" width="560" height="350" rx="14" fill="#edf6ef" stroke="#6c9677" stroke-width="1.5"/>
+<text x="1552" y="780" class="tag">DEV DEPLOYED</text>
+<text x="1552" y="819" class="node-title">Project storage + catalog</text>
+<text x="1552" y="853" class="body">projects: source, settings, messages, versions</text>
+<text x="1552" y="882" class="body">stateJson limited to 600 KB; no credentials</text>
+<text x="1552" y="911" class="body">projectCatalog: bounded metadata only</text>
+<text x="1552" y="940" class="body">Legacy absent revision interpreted as zero</text>
+<text x="1552" y="969" class="body">Explicit backfill: at most 5 projects per call</text>
+<text x="1552" y="998" class="body">Explicit backfill: done, 0 migrated</text>
+<text x="1552" y="1027" class="body">Dev schema / functions deployed</text>
+<path d="M1060 700 V750" class="edge"/>
+<text x="1080" y="731" class="label">authorized calls</text>
+<path d="M1340 913 H1530" class="edge"/>
+<text x="1360" y="891" class="label">query / mutation</text>
+<path d="M570 615 H658 V839 H780" class="edge"/>
+<text x="591" y="816" class="label">draft + revision</text>
+<path d="M780 1030 H710 V666 H570" class="edge"/>
+<text x="573" y="1055" class="label">result / conflict</text>
+<rect x="80" y="1136" width="2010" height="49" rx="10" fill="#fff5df" stroke="#e0c995"/>
+<text x="101" y="1168" class="small" style="fill:#765b26">HOSTED CHROME + EDGE  |  Sessions, shared edits, conflict discard, viewer controls, revocation/restoration and re-entry verified.</text>
+<rect x="40" y="1255" width="2120" height="575" rx="20" fill="#ffffff" stroke="#bdc8cf" stroke-dasharray="8 5"/>
+<text x="67" y="1297" class="section">02  DEPARTMENT-OWNED AGENT REUSE - KEEP PROJECT ACCESS AND RUNTIME PERMISSIONS SEPARATE</text>
+<rect x="80" y="1335" width="600" height="175" rx="14" fill="#edf6ef" stroke="#6c9677" stroke-width="1.5"/>
+<text x="102" y="1365" class="tag">DEV API VERIFIED</text>
+<text x="102" y="1404" class="node-title">Project collaboration foundation</text>
+<text x="102" y="1438" class="body">DEV BACKEND: department project roles</text>
+<text x="102" y="1467" class="body">Role enforcement + stale rejection verified</text>
+<text x="102" y="1496" class="body">Comments / presence / co-editing still proposed</text>
+<rect x="800" y="1335" width="570" height="175" rx="14" fill="#f3f5f6" stroke="#93a0a7" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="822" y="1365" class="tag">PROPOSED</text>
+<text x="822" y="1404" class="node-title">Department-owned agent registry</text>
+<text x="822" y="1438" class="body">Stable ID - immutable version - typed contract</text>
+<text x="822" y="1467" class="body">Owner-controlled Studio releases</text>
+<text x="822" y="1496" class="body">Real invocation grants remain future work</text>
+<rect x="1490" y="1335" width="600" height="175" rx="14" fill="#f1edfb" stroke="#9a85b8" stroke-width="1.5"/>
+<text x="1512" y="1365" class="tag">FICTIONAL UI</text>
+<text x="1512" y="1404" class="node-title">AgentLibrary demonstration</text>
+<text x="1512" y="1438" class="body">Fictional Support Builder / Finance Owner</text>
+<text x="1512" y="1467" class="body">Local request, approval and contract fixture</text>
+<text x="1512" y="1496" class="body">No server grant or live agent invocation</text>
+<path d="M680 1410 H800" class="edge future"/>
+<text x="690" y="1390" class="label">future link</text>
+<text x="83" y="1534" class="tag">PROPOSED EXECUTION PATH - NO CUSTOMER RUNTIME CONNECTED</text>
+<rect x="80" y="1560" width="400" height="150" rx="14" fill="#f3f5f6" stroke="#93a0a7" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="102" y="1590" class="tag">PROPOSED</text>
+<text x="102" y="1629" class="node-title">Support agent</text>
+<text x="102" y="1663" class="body">Trusted identity + case</text>
+<text x="102" y="1692" class="body">No Finance edit rights</text>
+<rect x="560" y="1560" width="490" height="150" rx="14" fill="#f3f5f6" stroke="#93a0a7" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="582" y="1590" class="tag">PROPOSED</text>
+<text x="582" y="1629" class="node-title">Invocation authorization</text>
+<text x="582" y="1663" class="body">Check grant, action and case scope</text>
+<text x="582" y="1692" class="body">Deny unlisted actions; log decision</text>
+<rect x="1130" y="1560" width="440" height="150" rx="14" fill="#f3f5f6" stroke="#93a0a7" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="1152" y="1590" class="tag">PROPOSED</text>
+<text x="1152" y="1629" class="node-title">Finance-owned agent</text>
+<text x="1152" y="1663" class="body">Pinned released version</text>
+<text x="1152" y="1692" class="body">Approved invoice-status capability</text>
+<rect x="1650" y="1560" width="440" height="150" rx="14" fill="#f3f5f6" stroke="#93a0a7" stroke-width="1.5" stroke-dasharray="8 5"/>
+<text x="1672" y="1590" class="tag">PROPOSED</text>
+<text x="1672" y="1629" class="node-title">Protected tool + billing</text>
+<text x="1672" y="1663" class="body">Recheck access; filter returned fields</text>
+<text x="1672" y="1692" class="body">Credentials stay inside runtime</text>
+<path d="M480 1635 H560" class="edge future"/>
+<path d="M1050 1635 H1130" class="edge future"/>
+<path d="M1570 1635 H1650" class="edge future"/>
+<path d="M1085 1510 V1540 H805 V1560" class="edge future"/>
+<text x="1098" y="1544" class="label">version + invocation grant</text>
+<text x="83" y="1760" class="body">Project editor/viewer grants do not grant agent invocation rights, Finance credentials, memory access or refund authority.</text>
+<text x="83" y="1794" class="small">Build, tests, GitHub, connectors and deployment UX still use clearly labeled simulations. Production services have a separate proposed architecture.</text>
+<text x="50" y="1882" class="small">Source: application/app.tsx; application/shared-logic; application/backend; application/interface-components/agent-library.tsx</text>
+<text x="50" y="1914" class="small">Hosted: architect-2-weld.vercel.app | Source: github.com/rishimunikesarwani-hub/architect-2. Scoped Chrome/Edge UI checks passed.</text>
+</svg>

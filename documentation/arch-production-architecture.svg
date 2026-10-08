@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2500" height="2420" viewBox="0 0 2500 2420" role="img" aria-labelledby="title desc"><title id="title">Architect 2.0 proposed production engineering drawing</title><desc id="desc">Prompt-to-preview path through Vercel, Convex authentication, admission, SQS, ECS coding workers, model and tool gateways, E2B sandboxes, S3 and an authenticated preview proxy. Separate GitHub and deployment pipelines publish apps. Cross-team Finance agent use has separate invocation and tool gates. All production execution services are proposals, not deployed prototype capabilities.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#6b8475"/></marker></defs><style>text{font-family:Inter,Segoe UI,Arial,sans-serif}path{stroke-linejoin:round;stroke-linecap:round}</style><rect width="2500" height="2420" fill="#fafbf8"/>
+<text x="50" y="59" font-size="17" fill="#73897b" font-weight="700">ARCHITECT 2.0 / PROPOSED PRODUCTION ARCHITECTURE</text>
+<text x="50" y="108" font-size="44" fill="#223a2a" font-weight="650">From a prompt to a running application.</text>
+<text x="50" y="145" font-size="20" fill="#53675b" font-weight="400">Prototype: 15 API checks + hosted Chrome/Edge sessions, shared edits, conflict discard and role/revocation checks passed. Runtime proposed.</text>
+<rect x="35" y="178" width="2430" height="875" rx="20" fill="#fff" stroke="#dce5dc"/>
+<text x="65" y="219" font-size="19" fill="#789180" font-weight="700">01</text>
+<text x="112" y="220" font-size="29" fill="#263d30" font-weight="650">BUILD AN APP · CONTROL PLANE + ISOLATED EXECUTION</text>
+<text x="112" y="255" font-size="18" fill="#53675b" font-weight="400">The coding assistant runs outside untrusted app code. Checkpoints, scoped tools and bounded retries turn failures into recoverable steps.</text>
+<rect x="65" y="290" width="420" height="181" rx="13" fill="#eaf3ed" stroke="#567f67" stroke-width="1.5"/>
+<text x="85" y="317" font-size="12" fill="#567f67" font-weight="750">BROWSER</text>
+<text x="85" y="351" font-size="24" fill="#233c2d" font-weight="650">React workspace</text>
+<text x="85" y="384" font-size="18" fill="#53675b" font-weight="400">Vercel static delivery</text>
+<text x="85" y="413" font-size="18" fill="#53675b" font-weight="400">Guided / Developer · same files</text>
+<text x="85" y="442" font-size="18" fill="#53675b" font-weight="400">Prompt, diff, terminal, preview</text>
+<rect x="552" y="290" width="420" height="181" rx="13" fill="#eaf3ed" stroke="#567f67" stroke-width="1.5"/>
+<text x="572" y="317" font-size="12" fill="#567f67" font-weight="750">IDENTITY &amp; PROJECT API</text>
+<text x="572" y="351" font-size="24" fill="#233c2d" font-weight="650">Convex + Better Auth</text>
+<text x="572" y="384" font-size="18" fill="#53675b" font-weight="400">Login ID/password; Google optional</text>
+<text x="572" y="413" font-size="18" fill="#53675b" font-weight="400">Department roles + revision checks</text>
+<text x="572" y="442" font-size="18" fill="#53675b" font-weight="400">Catalog; proposed jobs + releases</text>
+<rect x="1039" y="290" width="420" height="181" rx="13" fill="#fff4df" stroke="#b68d42" stroke-width="1.5"/>
+<text x="1059" y="317" font-size="12" fill="#b68d42" font-weight="750">CONVEX → DISPATCHER</text>
+<text x="1059" y="351" font-size="24" fill="#233c2d" font-weight="650">Admission + outbox</text>
+<text x="1059" y="384" font-size="18" fill="#53675b" font-weight="400">Authorize action; reserve budget</text>
+<text x="1059" y="413" font-size="18" fill="#53675b" font-weight="400">Idempotent job + source version</text>
+<text x="1059" y="442" font-size="18" fill="#53675b" font-weight="400">Fair dispatch; limits per tenant</text>
+<rect x="1526" y="290" width="420" height="181" rx="13" fill="#eaf1fa" stroke="#6284ad" stroke-width="1.5"/>
+<text x="1546" y="317" font-size="12" fill="#6284ad" font-weight="750">SEPARATE QUEUES PER WORKLOAD</text>
+<text x="1546" y="351" font-size="24" fill="#233c2d" font-weight="650">SQS + dead-letter queue</text>
+<text x="1546" y="384" font-size="18" fill="#53675b" font-weight="400">Durable work notification</text>
+<text x="1546" y="413" font-size="18" fill="#53675b" font-weight="400">Lease / heartbeat; bounded retry</text>
+<text x="1546" y="442" font-size="18" fill="#53675b" font-weight="400">Duplicate delivery handled</text>
+<rect x="2013" y="290" width="420" height="181" rx="13" fill="#eaf1fa" stroke="#6284ad" stroke-width="1.5"/>
+<text x="2033" y="317" font-size="12" fill="#6284ad" font-weight="750">TRUSTED WORKER</text>
+<text x="2033" y="351" font-size="24" fill="#233c2d" font-weight="650">Coding harness workers</text>
+<text x="2033" y="384" font-size="18" fill="#53675b" font-weight="400">ECS Fargate · TypeScript</text>
+<text x="2033" y="413" font-size="18" fill="#53675b" font-weight="400">Plan → patch → test → checkpoint</text>
+<text x="2033" y="442" font-size="18" fill="#53675b" font-weight="400">Stop, resume, cancel, ask review</text>
+<path d="M485 380H552" fill="none" stroke="#6b8475" stroke-width="2.1"  marker-end="url(#arrow)"/>
+<path d="M972 380H1039" fill="none" stroke="#6b8475" stroke-width="2.1"  marker-end="url(#arrow)"/>
+<path d="M1459 380H1526" fill="none" stroke="#6b8475" stroke-width="2.1"  marker-end="url(#arrow)"/>
+<path d="M1946 380H2013" fill="none" stroke="#6b8475" stroke-width="2.1"  marker-end="url(#arrow)"/>
+<text x="66" y="511" font-size="18" fill="#53675b" font-weight="400">Auth and project updates use Convex subscriptions. Large files live in S3; job records contain references, never provider credentials.</text>
+<path d="M2223 471V549H275V619" fill="none" stroke="#6b8475" stroke-width="2.1"  marker-end="url(#arrow)"/>
+<rect x="88" y="560" width="133" height="27" rx="5" fill="#fff"/>
+<text x="95" y="580" font-size="16" fill="#6b8475" font-weight="550">model activity</text>
+<path d="M2223 549H762V619" fill="none" stroke="#6b8475" stroke-width="2.1"  marker-end="url(#arrow)"/>
+<rect x="593" y="560" width="124.5" height="27" rx="5" fill="#fff"/>
+<text x="600" y="580" font-size="16" fill="#6b8475" font-weight="550">tool activity</text>
+<path d="M2223 549H1249V619" fill="none" stroke="#6b8475" stroke-width="2.1"  marker-end="url(#arrow)"/>
+<rect x="1073" y="560" width="150" height="27" rx="5" fill="#fff"/>
+<text x="1080" y="580" font-size="16" fill="#6b8475" font-weight="550">sandbox activity</text>
+<rect x="65" y="620" width="420" height="233" rx="13" fill="#f2edfa" stroke="#9277b3" stroke-width="1.5"/>
+<text x="85" y="647" font-size="12" fill="#9277b3" font-weight="750">TYPED INPUTS, TOOL CALLS &amp; EVENTS</text>
+<text x="85" y="681" font-size="24" fill="#233c2d" font-weight="650">Model gateway</text>
+<text x="85" y="714" font-size="18" fill="#53675b" font-weight="400">AI SDK provider adapters</text>
+<text x="85" y="743" font-size="18" fill="#53675b" font-weight="400">GPT / Claude / Gemini / local API</text>
+<text x="85" y="772" font-size="18" fill="#53675b" font-weight="400">Capability check before switching</text>
+<text x="85" y="801" font-size="18" fill="#53675b" font-weight="400">Token / latency / cost limits</text>
+<text x="85" y="830" font-size="18" fill="#53675b" font-weight="400">Provider keys stay server-side</text>
+<rect x="552" y="620" width="420" height="233" rx="13" fill="#fff4df" stroke="#b68d42" stroke-width="1.5"/>
+<text x="572" y="647" font-size="12" fill="#b68d42" font-weight="750">PROTECTED EGRESS</text>
+<text x="572" y="681" font-size="24" fill="#233c2d" font-weight="650">Tool authorization gateway</text>
+<text x="572" y="714" font-size="18" fill="#53675b" font-weight="400">Allowlisted tools and destinations</text>
+<text x="572" y="743" font-size="18" fill="#53675b" font-weight="400">Recheck tenant / grant / action</text>
+<text x="572" y="772" font-size="18" fill="#53675b" font-weight="400">Secrets Manager + KMS</text>
+<text x="572" y="801" font-size="18" fill="#53675b" font-weight="400">Short-lived scoped credentials</text>
+<text x="572" y="830" font-size="18" fill="#53675b" font-weight="400">Approval ≠ arbitrary shell access</text>
+<rect x="1039" y="620" width="420" height="233" rx="13" fill="#eaf1fa" stroke="#6284ad" stroke-width="1.5"/>
+<text x="1059" y="647" font-size="12" fill="#6284ad" font-weight="750">UNTRUSTED GENERATED CODE</text>
+<text x="1059" y="681" font-size="24" fill="#233c2d" font-weight="650">E2B build sandbox</text>
+<text x="1059" y="714" font-size="18" fill="#53675b" font-weight="400">Isolated Linux app environment</text>
+<text x="1059" y="743" font-size="18" fill="#53675b" font-weight="400">Files, processes, tests, dev server</text>
+<text x="1059" y="772" font-size="18" fill="#53675b" font-weight="400">Per-project sandbox lease + TTL</text>
+<text x="1059" y="801" font-size="18" fill="#53675b" font-weight="400">No host or organization secrets</text>
+<text x="1059" y="830" font-size="18" fill="#53675b" font-weight="400">Rebuild from versioned snapshot</text>
+<rect x="1526" y="620" width="420" height="233" rx="13" fill="#f2f4f3" stroke="#87968c" stroke-width="1.5"/>
+<text x="1546" y="647" font-size="12" fill="#87968c" font-weight="750">DURABLE CHECKPOINTS</text>
+<text x="1546" y="681" font-size="24" fill="#233c2d" font-weight="650">S3 source + artifacts</text>
+<text x="1546" y="714" font-size="18" fill="#53675b" font-weight="400">Immutable version references</text>
+<text x="1546" y="743" font-size="18" fill="#53675b" font-weight="400">Source, diffs, logs, test results</text>
+<text x="1546" y="772" font-size="18" fill="#53675b" font-weight="400">Checksums + lifecycle retention</text>
+<text x="1546" y="801" font-size="18" fill="#53675b" font-weight="400">Redaction before persistence</text>
+<text x="1546" y="830" font-size="18" fill="#53675b" font-weight="400">Restore files, not external effects</text>
+<rect x="2013" y="620" width="420" height="233" rx="13" fill="#eaf1fa" stroke="#6284ad" stroke-width="1.5"/>
+<text x="2033" y="647" font-size="12" fill="#6284ad" font-weight="750">APP TRAFFIC ONLY</text>
+<text x="2033" y="681" font-size="24" fill="#233c2d" font-weight="650">Private preview ingress</text>
+<text x="2033" y="714" font-size="18" fill="#53675b" font-weight="400">ALB → authenticated proxy</text>
+<text x="2033" y="743" font-size="18" fill="#53675b" font-weight="400">Validate user + sandbox ticket</text>
+<text x="2033" y="772" font-size="18" fill="#53675b" font-weight="400">HTTP / WebSocket to app port</text>
+<text x="2033" y="801" font-size="18" fill="#53675b" font-weight="400">Separate preview origin</text>
+<text x="2033" y="830" font-size="18" fill="#53675b" font-weight="400">Never expose platform cookies</text>
+<path d="M1459 715H1526" fill="none" stroke="#6b8475" stroke-width="2.1"  marker-end="url(#arrow)"/>
+<path d="M1249 853V921H2223V853" fill="none" stroke="#6b8475" stroke-width="2.1"  marker-end="url(#arrow)"/>
+<rect x="1523" y="892" width="311.5" height="27" rx="5" fill="#fff"/>
+<text x="1530" y="912" font-size="16" fill="#6b8475" font-weight="550">private app port · HTTP / WebSocket</text>
+<path d="M2433 755H2450V273H275V290" fill="none" stroke="#6b8475" stroke-width="2.1"  marker-end="url(#arrow)"/>
+<text x="72" y="978" font-size="18" fill="#53675b" font-weight="400">The outer return path carries the private preview into the browser iframe. A sandbox address is never a published app URL.</text>
+<text x="70" y="1024" font-size="18" fill="#517761" font-weight="600">Two proxies, two jobs: preview ingress routes private app traffic; model/tool gateways enforce allowed outbound capabilities.</text>
+<rect x="35" y="1080" width="2430" height="392" rx="20" fill="#fff" stroke="#dce5dc"/>
+<text x="65" y="1121" font-size="19" fill="#789180" font-weight="700">02</text>
+<text x="112" y="1122" font-size="29" fill="#263d30" font-weight="650">CONNECT GIT · REVIEW · RELEASE</text>
+<text x="112" y="1157" font-size="18" fill="#53675b" font-weight="400">A source checkpoint becomes an immutable release after checks and approval. GitHub is optional. App and platform deployments are separate.</text>
+<rect x="65" y="1190" width="420" height="184" rx="13" fill="#eaf3ed" stroke="#567f67" stroke-width="1.5"/>
+<text x="85" y="1217" font-size="12" fill="#567f67" font-weight="750">NO PERSONAL ACCESS TOKEN IN APP</text>
+<text x="85" y="1251" font-size="24" fill="#233c2d" font-weight="650">GitHub App connector</text>
+<text x="85" y="1284" font-size="18" fill="#53675b" font-weight="400">Repo-scoped installation token</text>
+<text x="85" y="1313" font-size="18" fill="#53675b" font-weight="400">Signed webhook inbox + dedupe</text>
+<text x="85" y="1342" font-size="18" fill="#53675b" font-weight="400">Import / branch / PR / pull / push</text>
+<rect x="552" y="1190" width="420" height="184" rx="13" fill="#eaf1fa" stroke="#6284ad" stroke-width="1.5"/>
+<text x="572" y="1217" font-size="12" fill="#6284ad" font-weight="750">SEPARATE BUILD / RELEASE QUEUE</text>
+<text x="572" y="1251" font-size="24" fill="#233c2d" font-weight="650">Release worker</text>
+<text x="572" y="1284" font-size="18" fill="#53675b" font-weight="400">Pinned S3 source + approved tests</text>
+<text x="572" y="1313" font-size="18" fill="#53675b" font-weight="400">Idempotent release job + manifest</text>
+<text x="572" y="1342" font-size="18" fill="#53675b" font-weight="400">Health gate; route or roll back</text>
+<rect x="1039" y="1190" width="420" height="184" rx="13" fill="#f2f4f3" stroke="#87968c" stroke-width="1.5"/>
+<text x="1059" y="1217" font-size="12" fill="#87968c" font-weight="750">DIGEST PINNED / SCANNED</text>
+<text x="1059" y="1251" font-size="24" fill="#233c2d" font-weight="650">E2B BuildKit → ECR</text>
+<text x="1059" y="1284" font-size="18" fill="#53675b" font-weight="400">Isolated builder → S3 OCI archive</text>
+<text x="1059" y="1313" font-size="18" fill="#53675b" font-weight="400">Trusted publisher copies bytes</text>
+<text x="1059" y="1342" font-size="18" fill="#53675b" font-weight="400">Registry stores; never executes</text>
+<rect x="1526" y="1190" width="420" height="184" rx="13" fill="#eaf1fa" stroke="#6284ad" stroke-width="1.5"/>
+<text x="1546" y="1217" font-size="12" fill="#6284ad" font-weight="750">PUBLISHED CONTAINER APPS</text>
+<text x="1546" y="1251" font-size="24" fill="#233c2d" font-weight="650">ECS Fargate app cells</text>
+<text x="1546" y="1284" font-size="18" fill="#53675b" font-weight="400">Dedicated runtime tasks / roles</text>
+<text x="1546" y="1313" font-size="18" fill="#53675b" font-weight="400">App ingress; health + autoscale</text>
+<text x="1546" y="1342" font-size="18" fill="#53675b" font-weight="400">Regional cells; tenant isolation</text>
+<rect x="2013" y="1190" width="420" height="184" rx="13" fill="#eaf3ed" stroke="#567f67" stroke-width="1.5"/>
+<text x="2033" y="1217" font-size="12" fill="#567f67" font-weight="750">PUBLISHED WEB APPS</text>
+<text x="2033" y="1251" font-size="24" fill="#233c2d" font-weight="650">Vercel app deployments</text>
+<text x="2033" y="1284" font-size="18" fill="#53675b" font-weight="400">Static / compatible Node HTTP</text>
+<text x="2033" y="1313" font-size="18" fill="#53675b" font-weight="400">Preview → approved production</text>
+<text x="2033" y="1342" font-size="18" fill="#53675b" font-weight="400">Separate project + owned domain</text>
+<path d="M485 1280H552" fill="none" stroke="#6b8475" stroke-width="2.1" stroke-dasharray="7 6" marker-end="url(#arrow)"/>
+<path d="M972 1280H1039" fill="none" stroke="#6b8475" stroke-width="2.1"  marker-end="url(#arrow)"/>
+<path d="M1459 1280H1526" fill="none" stroke="#6b8475" stroke-width="2.1"  marker-end="url(#arrow)"/>
+<path d="M762 1374V1425H2223V1374" fill="none" stroke="#6b8475" stroke-width="2.1"  marker-end="url(#arrow)"/>
+<rect x="938" y="1398" width="643" height="27" rx="5" fill="#fff"/>
+<text x="945" y="1418" font-size="16" fill="#6b8475" font-weight="550">Alternative web target · never reuse the development sandbox as production</text>
+<text x="72" y="1454" font-size="17" fill="#53675b" font-weight="400">Git and releases exchange versioned source with S3 (01). Published app URLs use their own ingress and credentials, not private preview tickets.</text>
+<rect x="35" y="1500" width="2430" height="377" rx="20" fill="#fff" stroke="#dce5dc"/>
+<text x="65" y="1541" font-size="19" fill="#789180" font-weight="700">03</text>
+<text x="112" y="1542" font-size="29" fill="#263d30" font-weight="650">RUN THE APP · REUSE AN AGENT ACROSS TEAMS</text>
+<text x="112" y="1577" font-size="18" fill="#53675b" font-weight="400">Support can invoke an approved Finance capability. Invocation rights, project editing and secret access are different permissions.</text>
+<rect x="65" y="1610" width="420" height="183" rx="13" fill="#eaf3ed" stroke="#567f67" stroke-width="1.5"/>
+<text x="85" y="1637" font-size="12" fill="#567f67" font-weight="750">PRODUCTION RUNTIME CLIENT</text>
+<text x="85" y="1671" font-size="24" fill="#233c2d" font-weight="650">Support application</text>
+<text x="85" y="1704" font-size="18" fill="#53675b" font-weight="400">End-user identity + case context</text>
+<text x="85" y="1733" font-size="18" fill="#53675b" font-weight="400">Pinned agent ID + version</text>
+<text x="85" y="1762" font-size="18" fill="#53675b" font-weight="400">Typed input; request identifier</text>
+<rect x="552" y="1610" width="420" height="183" rx="13" fill="#fff4df" stroke="#b68d42" stroke-width="1.5"/>
+<text x="572" y="1637" font-size="12" fill="#b68d42" font-weight="750">OWNER APPROVAL ENFORCED</text>
+<text x="572" y="1671" font-size="24" fill="#233c2d" font-weight="650">Invocation gate</text>
+<text x="572" y="1704" font-size="18" fill="#53675b" font-weight="400">Read registry + explicit grants</text>
+<text x="572" y="1733" font-size="18" fill="#53675b" font-weight="400">Tenant / resource / action / expiry</text>
+<text x="572" y="1762" font-size="18" fill="#53675b" font-weight="400">Fail closed if auth unavailable</text>
+<rect x="1039" y="1610" width="420" height="183" rx="13" fill="#f2edfa" stroke="#9277b3" stroke-width="1.5"/>
+<text x="1059" y="1637" font-size="12" fill="#9277b3" font-weight="750">SAME IDENTITY IN ARCHITECT / STUDIO</text>
+<text x="1059" y="1671" font-size="24" fill="#233c2d" font-weight="650">Finance-owned agent</text>
+<text x="1059" y="1704" font-size="18" fill="#53675b" font-weight="400">Released immutable contract</text>
+<text x="1059" y="1733" font-size="18" fill="#53675b" font-weight="400">Department owns edits / releases</text>
+<text x="1059" y="1762" font-size="18" fill="#53675b" font-weight="400">Filtered structured response</text>
+<rect x="1526" y="1610" width="420" height="183" rx="13" fill="#fff4df" stroke="#b68d42" stroke-width="1.5"/>
+<text x="1546" y="1637" font-size="12" fill="#b68d42" font-weight="750">NO INHERITED REFUND PERMISSION</text>
+<text x="1546" y="1671" font-size="24" fill="#233c2d" font-weight="650">Protected tool gate</text>
+<text x="1546" y="1704" font-size="18" fill="#53675b" font-weight="400">Recheck access on every tool call</text>
+<text x="1546" y="1733" font-size="18" fill="#53675b" font-weight="400">Read-only invoice-status action</text>
+<text x="1546" y="1762" font-size="18" fill="#53675b" font-weight="400">Field filtering + scoped secret</text>
+<rect x="2013" y="1610" width="420" height="183" rx="13" fill="#f2f4f3" stroke="#87968c" stroke-width="1.5"/>
+<text x="2033" y="1637" font-size="12" fill="#87968c" font-weight="750">EXTERNAL SYSTEM</text>
+<text x="2033" y="1671" font-size="24" fill="#233c2d" font-weight="650">Customer billing API</text>
+<text x="2033" y="1704" font-size="18" fill="#53675b" font-weight="400">Customer-owned source of truth</text>
+<text x="2033" y="1733" font-size="18" fill="#53675b" font-weight="400">No shared credential in prompts</text>
+<text x="2033" y="1762" font-size="18" fill="#53675b" font-weight="400">Return status / due date only</text>
+<path d="M485 1700H552" fill="none" stroke="#6b8475" stroke-width="2.1"  marker-end="url(#arrow)"/>
+<path d="M972 1700H1039" fill="none" stroke="#6b8475" stroke-width="2.1"  marker-end="url(#arrow)"/>
+<path d="M1459 1700H1526" fill="none" stroke="#6b8475" stroke-width="2.1"  marker-end="url(#arrow)"/>
+<path d="M1946 1700H2013" fill="none" stroke="#6b8475" stroke-width="2.1"  marker-end="url(#arrow)"/>
+<text x="73" y="1837" font-size="18" fill="#53675b" font-weight="400">Extend existing department project permissions with the proposed agent registry and invocation grants. Redacted runtime decisions are auditable.</text>
+<rect x="35" y="1905" width="2430" height="363" rx="20" fill="#fff" stroke="#dce5dc"/>
+<text x="65" y="1946" font-size="19" fill="#789180" font-weight="700">04</text>
+<text x="112" y="1947" font-size="29" fill="#263d30" font-weight="650">OPERATE THE PLATFORM · SCALE WITH BOUNDS</text>
+<text x="112" y="1982" font-size="18" fill="#53675b" font-weight="400">These are design decisions and capacity assumptions to test, not claims that this prototype is production-ready.</text>
+<rect x="65" y="2014" width="743" height="196" rx="13" fill="#eaf3ed" stroke="#567f67" stroke-width="1.5"/>
+<text x="85" y="2041" font-size="12" fill="#567f67" font-weight="750">SEPARATE FROM GENERATED APPS</text>
+<text x="85" y="2075" font-size="24" fill="#233c2d" font-weight="650">Platform release</text>
+<text x="85" y="2108" font-size="18" fill="#53675b" font-weight="400">Vercel UI · Convex production deployment</text>
+<text x="85" y="2137" font-size="18" fill="#53675b" font-weight="400">ECS worker / gateway services behind ALB</text>
+<text x="85" y="2166" font-size="18" fill="#53675b" font-weight="400">Infrastructure as code + isolated environments</text>
+<text x="85" y="2195" font-size="18" fill="#53675b" font-weight="400">Canary checks, compatible migrations, rollback</text>
+<rect x="878" y="2014" width="743" height="196" rx="13" fill="#eaf1fa" stroke="#6284ad" stroke-width="1.5"/>
+<text x="898" y="2041" font-size="12" fill="#6284ad" font-weight="750">THOUSANDS OF USERS ≠ UNLIMITED JOBS</text>
+<text x="898" y="2075" font-size="24" fill="#233c2d" font-weight="650">Capacity and backpressure</text>
+<text x="898" y="2108" font-size="18" fill="#53675b" font-weight="400">Per-tenant admission and spend reservations</text>
+<text x="898" y="2137" font-size="18" fill="#53675b" font-weight="400">Autoscale workers by queue age, cap sandbox leases</text>
+<text x="898" y="2166" font-size="18" fill="#53675b" font-weight="400">Warm-pool / idle timeout / restore from snapshots</text>
+<text x="898" y="2195" font-size="18" fill="#53675b" font-weight="400">Contract sandbox quotas; load-test each runtime cell</text>
+<rect x="1691" y="2014" width="743" height="196" rx="13" fill="#f2f4f3" stroke="#87968c" stroke-width="1.5"/>
+<text x="1711" y="2041" font-size="12" fill="#87968c" font-weight="750">EVERY SERVICE EMITS BOUNDED EVENTS</text>
+<text x="1711" y="2075" font-size="24" fill="#233c2d" font-weight="650">Observability + recovery</text>
+<text x="1711" y="2108" font-size="18" fill="#53675b" font-weight="400">OpenTelemetry → CloudWatch</text>
+<text x="1711" y="2137" font-size="18" fill="#53675b" font-weight="400">Trace IDs across request / job / sandbox / release</text>
+<text x="1711" y="2166" font-size="18" fill="#53675b" font-weight="400">Lease expiry, DLQ review, reconcile external effects</text>
+<text x="1711" y="2195" font-size="18" fill="#53675b" font-weight="400">Redact prompts, credentials and sensitive tool data</text>
+<text x="52" y="2311" font-size="19" fill="#2f5940" font-weight="700">READ WITH: documentation/arch-production-architecture.md</text>
+<text x="52" y="2348" font-size="18" fill="#53675b" font-weight="400">The companion document explains service choices, exact request paths, failure recovery, ownership boundaries, scaling arithmetic and primary sources.</text>
+<text x="52" y="2380" font-size="17" fill="#7c8e81" font-weight="400">Prototype API/UI evidence is documented separately in arch-engineering-drawing.md. The proposed production execution services are not provisioned.</text>
+</svg>

@@ -1,0 +1,76 @@
+{
+  "deployment": "dev:perceptive-ermine-27",
+  "runId": "muvikqtl_f47cfc",
+  "passed": true,
+  "workspaceId": "js75zfyqpcv21km3hzrrq955cx8fpe9c",
+  "appId": "j57ak7j7cq10bs0cz0yqz5ngy58fqfts",
+  "loginIds": {
+    "owner": "qa_muvikqtl_f47cfc_owner",
+    "editor": "qa_muvikqtl_f47cfc_editor",
+    "viewer": "qa_muvikqtl_f47cfc_viewer",
+    "outsider": "qa_muvikqtl_f47cfc_outsider"
+  },
+  "checks": [
+    {
+      "name": "Password readiness and anonymous identity",
+      "pass": true
+    },
+    {
+      "name": "Owner signup and real username signin",
+      "pass": true
+    },
+    {
+      "name": "Editor signup and real username signin",
+      "pass": true
+    },
+    {
+      "name": "Viewer signup and real username signin",
+      "pass": true
+    },
+    {
+      "name": "Outsider signup and real username signin",
+      "pass": true
+    },
+    {
+      "name": "Create labeled workspace, departments, members, and one shared app",
+      "pass": true
+    },
+    {
+      "name": "Independent department clients read the same app ID and source",
+      "pass": true
+    },
+    {
+      "name": "Viewer cannot edit or grant access",
+      "pass": true
+    },
+    {
+      "name": "Editor save is visible through independent owner and viewer clients",
+      "pass": true
+    },
+    {
+      "name": "Stale revision rejected without overwriting the shared source",
+      "pass": true
+    },
+    {
+      "name": "Unassigned account and anonymous client cannot access the app",
+      "pass": true
+    },
+    {
+      "name": "Revocation removes existing editor access immediately",
+      "pass": true
+    },
+    {
+      "name": "Incorrect username password rejected",
+      "pass": true
+    },
+    {
+      "name": "Normal logout invalidates the owner session even with its prior JWT",
+      "pass": true
+    },
+    {
+      "name": "Close synthetic signup/signin sessions",
+      "pass": true
+    }
+  ],
+  "retained": "Synthetic QA accounts, workspace, and app; no app data deleted."
+}

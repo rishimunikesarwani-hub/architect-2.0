@@ -1,77 +1,76 @@
 # Architect 2.0
 
-I built this prototype around one journey: describe an agentic app, review the plan, inspect the source and take it through a release flow. Guided and Developer modes open the same project. Departments can work on the same saved app through separate login IDs.
+Architect 2.0 is a working assignment prototype for building agentic apps. You can start with a prompt, review a plan, edit the project, import source, configure agents and walk through GitHub and deployment flows. Guided and Developer views use the same project.
 
-Start with the app. The code and tests are here when you want to look closer.
+**[Open the app](https://architect-2-weld.vercel.app)** · **[GitHub repository](https://github.com/rishimunikesarwani-hub/architect-2.0)**
 
-[Live demo](https://architect-2-weld.vercel.app) · [Architecture](architecture.md)
+This repository contains the application source used by the live app above. On 8 October 2026, Vercel inspection confirmed production deployment `dpl_2Do9RGbq8QrvLDXrWqKuzWm2ExGB`. Its release record identifies source commit `9b9536645a540a14fc374b6f9141c7e0b2373935`; the imported repository revision `41da9240c64400ebb9dfa3ddae55fadf80f3cdf2` adds documentation only. Vercel remains connected to the original project; pushing here does not update that deployment. Historical release links below refer to the original repository. Verification of this copy passed `npm run check`: 97 tests, both TypeScript checks, hygiene and the build. Two first-run backend timeouts did not recur on the full rerun; no application code was changed.
 
-The [architecture document](architecture.md) explains the working prototype and proposed production design. Four PNG views are included in [documentation/](documentation/): prototype, system, agent execution and release operations.
+For a quick review, use the [submission guide](documentation/guide-submission.md): architecture attachments, demo route and local setup. The [readiness record](verification-records/2026-10-07-submission-readiness.md) distinguishes completed checks from pending release checks.
 
-## Run it
+The user chose to skip blueprint on 5 October 2026. The assignment allows simulated flows, so the app shows where a step is a demonstration. Real account access and shared saved changes were added separately and verified in two browsers.
 
-Use **Node.js 24**; this copy was checked with 24.18.0. Open a terminal in this folder:
+## Run it locally
 
-```sh
+Use Node.js 24 (verified with 24.18.0) and npm. The installed Vite dependencies require Node `^20.19.0 || >=22.12.0`. The lockfile pins the package versions.
+
+```powershell
 npm ci
-npm run check
 npm run dev
 ```
 
-Open **http://127.0.0.1:5177**. The guest demo needs no account, API key or environment file. Keep the terminal running; Ctrl+C stops it. If port 5177 is busy, stop the process using it or run `npm run dev -- --port 5180` and use the address printed by Vite.
+Open the URL printed by Vite. The published app is the configured sign-in origin; local development is useful for the demo and UI work, but it is not currently an approved authentication origin.
 
-| Command | What it checks or starts |
-|---|---|
-| `npm run check` | Folder/link hygiene, frontend/backend TypeScript, all automated tests and the production build |
-| `npm test` | The complete automated suite, including in-memory backend permissions and saves |
-| `npm run eval` | Ten focused source-preservation, payload-budget and collaboration scenarios |
-| `npm run dev` | Local guest workspace with live code reload |
-| `npm run build` then `npm run preview` | Compiled app; open the address printed in the terminal |
-
-The checks use synthetic, in-memory backend data. They do not deploy or edit the hosted workspace. This copy's `eval` runs current behavior; it needs no historical backup and does not measure model quality.
-
-Verified on 8 October 2026 with Node.js 24.18.0: a fresh `npm ci`, all 102 automated tests, both TypeScript checks and the production build passed. The guest app opened in Chrome; both architecture image links opened, the Markdown download matched this repository, and the browser reported no console errors. Live login and multi-browser sharing on a new backend were not tested for this package.
-
-The 8 October import refactor separates ZIP header validation from source collection and reuses one UTF-8 encoder per import. The limits, exclusions, duplicate rejection and error messages are preserved. After the change, `npm run check` passed all 105 tests, both TypeScript checks, hygiene and the production build. Three added cases cover exact capacity, file order and normalized paths. A local guest browser check verified ZIP import, preview interaction and reopening after reload, with no console errors. Live account sharing was not retested.
-
-## Try one complete journey
-
-1. Enter “Track supplier invoices and ask for approval before sending reminders.” Choose **Plan**, create the project, review the steps, approve them and choose **Simulate build**.
-2. Switch to **Developer → Code**. Change a heading, save, then check Preview. Reload and reopen the project: the saved edit should remain.
-3. Open **Agents**, inspect instructions and tools, then review the GitHub and Deploy flows. Their simulation labels matter.
-4. Return home and import [automated-tests/import-demo.zip](automated-tests/import-demo.zip). It contains two small files. Try the preview button, edit the heading and reopen the project. Export source downloads JSON.
-
-## What works, and what is simulated?
-
-**Working:** guest persistence, source import/edit/export, checkpoints when space allows, isolated HTML preview, and login/password plus department permissions when connected to a configured Convex backend. Shared saves use revision checks so one person cannot silently overwrite another person's newer change.
-
-**Simulated:** model generation, framework/server execution, external tools, GitHub operations and generated-app deployment. Python and server frameworks can be imported as source; this preview runs HTML. The production runtime diagram is a proposal. Google sign-in is deferred.
-
-The local guest demo stays in that browser. It does not establish cross-device collaboration. For that, configure your own backend below.
-
-## Optional: run shared login on your own backend
-
-The complete backend source is included. Guest review and automated tests do not require these steps.
-
-1. Run `npm run backend` and select **your own** Convex development project. This command syncs schema/functions to that project; it is not a local-only test. Keep it running.
-2. In that project's Convex dashboard, set `SITE_URL` to `http://127.0.0.1:5177` and `BETTER_AUTH_SECRET` to your own strong random secret.
-3. Use `.env.example` as a guide for the root `.env.local`. Keep the deployment selector written by Convex and set `VITE_CONVEX_URL` and `VITE_CONVEX_SITE_URL` to your project's public cloud/site URLs. Restart the frontend. The browser address must exactly match `SITE_URL`, including the port.
-4. Create two test accounts in separate browser profiles. The owner opens **Settings → Manage departments**, creates a workspace/department and adds the other account's existing login ID. Attach a test app through **Manage access**, grant Editor, then open **Shared with me** in the second account. Check a saved edit, Viewer restrictions and a stale-save conflict.
-
-Keep secrets on the backend. Anything prefixed `VITE_` is public. Email verification, password-reset delivery and MFA are not configured. Use synthetic data for this review.
-
-## Find the code
-
-```text
-architect-2.0/
-├── README.md              # Setup and review journey
-├── architecture.md        # Implementation map and production proposal
-├── application/           # UI, shared logic and Convex backend
-├── automated-tests/       # Tests and one import ZIP
-├── development-tools/     # Build, test and hygiene configuration
-└── documentation/         # Four PNG architecture views
+```powershell
+npm run check
 ```
 
-The root also keeps AGENTS.md, the package manifest/lockfile, backend/hosting configuration, ignore rules and a blank environment example. Local builds go into ignored `generated-output/`; dependencies and private environment files are excluded.
+This checks folder hygiene, frontend and backend types, automated tests, and the website build. It does not deploy the backend or replace browser acceptance. The build goes to `generated-output/website/`. See [what to test](documentation/guide-testing.md) for smaller checks and the important manual journeys.
 
-Start with `application/backend/access.ts` for permissions, `projects.ts` for revision checks, and `application/shared-logic/project-budget.ts` for source/history limits. This repository preserves the interview application's behavior, with the import refactor and verification described above. Documentation resource links and packaging are adapted for this copy. Private environment files, development history, diagram generators and old test reports are left out.
+## What is real, and what is a simulation?
+
+| Area | What you can rely on |
+|---|---|
+| Accounts and shared projects | Login ID/password sign-in, administrator-assigned departments, Viewer/Editor access to the same app, reactive saved changes, stale-save rejection and private draft recovery. These run on the approved Convex development backend. Google is deferred. |
+| Project work | Saved plans, agent settings, editable source, version history, safe source import and JSON export. Guest projects stay in the browser; signing in does not upload them automatically. |
+| Preview | Plain HTML runs in an isolated iframe. Design presets can change that HTML. React, Python and server files can be edited, but this prototype does not execute them. |
+| Build and external services | Generation, model execution, framework execution, GitHub sync, tool connections, invitations and generated-app deployment are labeled simulations. They do not call a model, connect an external account, send a message or publish a generated website. |
+| Agents and usage | The shared-agent library uses fictional people and grants. It is separate from real department access to projects. Usage reads the project's saved agents, then shows illustrative credits rather than metered use or charges. |
+
+The workspace also includes template review and copying, agent knowledge and test fixtures, generated-app data/auth demonstrations, custom HTTP and MCP tool reviews, design references, artifacts, file-based handoffs and Studio editing. Source checks inspect actual project state; the sample safety traces are not production security tests.
+
+Imports accept up to 300,000 UTF-8 source bytes and 100 files. The client measures the complete serialized save payload against a 550,000-byte budget; the server allows 600,000 bytes. Older checkpoints are dropped first, including the last checkpoint when needed to keep current source. The workspace explains when no restore point fits. JSON escaping or other project data can still make a source bundle too large; the import dialog shows the error and keeps the selection. Environment files, credential files, dependency folders and Git folders are excluded. Duplicate normalized paths are rejected before ZIP extraction can overwrite source.
+
+The iframe uses an opaque origin and restrictive Content Security Policy to separate preview code from the host app and its credentials. It is not the production code-execution sandbox described in the architecture proposal.
+
+## What has been checked?
+
+The live backend passed [15 account and permission checks](verification-records/2026-10-05-department-backend-smoke.json). The hosted Chrome/Edge journey then verified shared editing, reload persistence, conflict recovery, Viewer downgrade, revocation and sign-out/sign-in. The real ZIP chooser, preview interaction and saved edit passed for a two-file HTML fixture. JSON source export and conflict-draft HTML download were checked against the actual downloaded files.
+
+| Evidence | What it covers |
+|---|---|
+| [Hosted department acceptance](verification-records/2026-10-06-hosted-department-acceptance.md) | Two browsers, the same app, permissions and saved changes |
+| [Hosted import acceptance](verification-records/2026-10-06-hosted-import-acceptance.md) | Two exact imported files, working preview, edit, save and reload |
+| [Supplemental verification](verification-records/2026-10-06-supplemental-ui-verification.md) | Actual downloads, per-agent usage, design/MCP simulations and measured mobile panels |
+| [Requirement audit](verification-records/2026-10-05-requirement-audit.md) | Assignment requirements, source evidence and the limits of each check |
+| [Public release record](verification-records/2026-10-06-public-release.md) | Published URLs, repository and artifact checks |
+
+These are bounded checks, not a claim that every framework, archive or mobile panel has been tested. Account creation was user-performed in the hosted journey. Earlier permission-blocked import attempts remain in the history and are superseded by the successful import record. The supplied [Markdown brief](documentation/ref-payment-status-workflow-brief.md) is preserved byte-for-byte as an earlier sample snapshot.
+
+The [7 October refactor check](verification-records/2026-10-07-folder-refactor.md) passed `npm run check`: 88 automated tests, both typechecks, folder/link hygiene and the production build. Chrome loaded the renamed app and compiled workspace; the measured phone login view had no horizontal overflow. That record describes the local checkpoint before the submission-readiness fixes.
+
+The subsequent [before/after evaluation](verification-records/2026-10-07-app-evaluation-and-ab.md) passed the same 93 automated cases on each version: 88 regressions plus five combined import/save/access scenarios. JavaScript and CSS output matched exactly at that checkpoint. Paired browser checks found no observed behavior regression; actual exported JSON preserved both expected source files exactly. Its 300 KB case exposed a save-budget problem addressed by the later payload preparation change. Run `npm run eval` with the preserved local baseline to compare against the current code; all original cases must still pass, and new regression cases are reported separately. See the [evaluation contract](documentation/eval-app-comparison.md) for scope and browser steps.
+
+## Find your way around
+
+| Start here | Use it for |
+|---|---|
+| [Folder and script map](documentation/guide-folder-hygiene.md) | Where code, guides, checks and generated files belong |
+| [Backend setup](documentation/guide-backend-setup.md) | Login IDs, departments, environment names and permission rules |
+| [Testing guide](documentation/guide-testing.md) | Commands and browser checks |
+| [Feature coverage](documentation/ref-feature-coverage.md) | What came from the assignment and current Architect references |
+| [Current engineering drawing](documentation/arch-engineering-drawing.md) · [SVG](documentation/arch-engineering-drawing.svg) · [PNG](documentation/arch-engineering-drawing.png) | How this prototype actually works |
+| [Production architecture proposal](documentation/arch-production-architecture.md) · [SVG](documentation/arch-production-architecture.svg) · [PNG](documentation/arch-production-architecture.png) | Proposed execution services, scaling choices and their rationale |
+| [Release guide](documentation/guide-release.md) | Published scope and how to prepare a later release |
+
+The website is public; its backend is still the dedicated **development** deployment. No hiring form has been submitted. Keep secrets out of `VITE_*` values, project files, chat, logs and Git.

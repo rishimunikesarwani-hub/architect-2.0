@@ -1,27 +1,39 @@
-# Working on this interview copy
+# Working on Architect 2.0
 
-Keep the app easy to run and the claims easy to check. The README is the starting point; root `architecture.md` explains the design. Add another document only when those two cannot carry the information clearly.
+Build against the user's assignment and later decisions. The user explicitly skipped blueprint on 5 October 2026. The assignment asks for a usable journey for beginners and developers: prompt building, source import, framework choice, GitHub, deployment and current Architect features. It permits simulated flows. Do not turn an agent-written checklist into an additional user requirement.
 
-Application code lives in `application/`, tests in `automated-tests/`, tooling in `development-tools/`, four PNG diagrams in `documentation/` and the import fixture in `automated-tests/`. Put local output in ignored `generated-output/`. Keep required root configuration and the lockfile. This layout is intentional for the interview handoff.
+Google OAuth is deferred. Login ID/password accounts and shared saved projects are real. Department membership and Viewer/Editor grants must be enforced by the backend, not just by disabled buttons. Keep the fictional shared-agent library separate from these real project permissions.
 
-Preserve the UX, source files, revision checks and server-enforced permissions. Keep generation, tool calls and generated-app releases labelled as simulations. The AWS/E2B design is proposed infrastructure.
+## Keep the product honest
 
-Run `npm run check` after a change and test affected browser journeys. `npm run eval` checks current in-memory workflows; it does not use the original project's private before/after snapshot.
+Label simulated generation, model calls, tests, connections and generated-app releases. Do not describe them as completed external actions. The production execution architecture is a proposal; the published frontend and approved development backend are running services.
 
-Never copy credentials, private projects, dependency folders or local evidence into Git. Use your own development backend. Ask before deploying, changing a live schema or deleting data. `npm run backend` can sync a live development service.
+Preserve the existing UX when refactoring. Check relevant desktop/mobile journeys and report what was actually observed. A click attempt, toast or download event is not proof that the final artifact arrived. Verify the destination or file when that matters.
 
-Write Markdown in natural English, with Rishi Voice at roughly 60% rawness: direct, concrete and technically honest. Keep commands exact. No invented stories, forced slogans or unsupported claims.
+## Put files where their names say
 
-<!-- convex-ai-start -->
+- `application/`: frontend, `interface-components/`, `shared-logic/`, `backend/` and authored browser assets.
+- `documentation/`: working guides, reference material and architecture sources.
+- `automated-tests/`: isolated automated checks.
+- `verification-records/`: dated, sanitized acceptance evidence.
+- `development-tools/`: build/test configuration and maintenance scripts.
+- `sample-projects/`: safe fixtures.
+- `generated-output/`: ignored builds, served asset copies, screenshots, reports and recoverable backups.
 
-This project uses [Convex](https://convex.dev) as its backend.
+The user requested these descriptive names. They replace the earlier short folder convention for this project. Keep required root configuration, ignore files and the lockfile alongside README, AGENTS, LOG and the package manifest.
 
-When working on Convex code, **always read
-`application/backend/_generated/ai/guidelines.md` first** for important guidelines on
-how to correctly use Convex APIs and patterns. The file contains rules that
-override what you may have learned about Convex from training data.
+Edit architecture sources in `documentation/`. Run `npm run diagrams` to render and sync them. Dev/build generate the served copies under `generated-output/public-assets/`; do not bring back tracked duplicates.
 
-Convex agent skills for common tasks can be installed by running
-`npx convex ai-files install`.
+## Protect data and permissions
 
-<!-- convex-ai-end -->
+Keep secrets out of client bundles, project source, logs, chat and commits. Preview code must remain isolated from the host app and credentials. Enforce owner/admin and department permissions on every project operation. Preserve revision checks and private draft recovery.
+
+Prepare and test changes before applying them. Schema changes and production deployment need explicit authorization for the target; authorization already given in the session remains valid. `npm run backend` can sync to the live development database, so it is not a harmless local test. Do not submit the hiring form or take unrelated third-party actions without authorization.
+
+Preserve user files and useful evidence. The original `documentation/ref-payment-status-workflow-brief.md` must remain unchanged. The pre-refactor backup contains 99 verified files at `generated-output/refactor-backups/2026-10-07-before-folder-cleanup/`. Do not delete or rewrite that backup.
+
+## Write and verify clearly
+
+For this refactor, the user explicitly requested Rishi Voice: natural English, 60% rawness. Explain the decision like a peer who has read the code. Use concrete examples when they help; do not invent personal stories, slogans or claims.
+
+Use `npm run check` for the local pipeline and the [testing guide](documentation/guide-testing.md) for relevant browser checks. Keep historical results dated. Never reuse an earlier passing result as proof for changed code or paths.

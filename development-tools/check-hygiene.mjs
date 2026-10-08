@@ -5,13 +5,12 @@ import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const projectFolders = new Set([
-  'application', 'documentation', 'automated-tests',
-  'development-tools', 'generated-output',
+  'application', 'documentation', 'automated-tests', 'verification-records',
+  'development-tools', 'sample-projects', 'generated-output',
 ]);
-// Convex's optional AI setup creates .agents/, .claude/ and their root manifests.
-const toolingFolders = new Set(['.git', '.convex', '.vercel', '.agents', '.claude', 'node_modules']);
+const toolingFolders = new Set(['.git', '.convex', '.vercel', 'node_modules']);
 const rootFiles = new Set([
-  'README.md', 'AGENTS.md', 'architecture.md', 'package.json', 'package-lock.json',
+  'README.md', 'AGENTS.md', 'LOG.md', 'package.json', 'package-lock.json',
   '.gitignore', '.vercelignore', 'convex.json', 'vercel.json',
 ]);
 const problems = [];
@@ -23,7 +22,7 @@ for (const entry of readdirSync(root, { withFileTypes: true })) {
       problems.push(`Unexpected root folder: ${entry.name}/. Put it in a project folder or document a tooling exception.`);
     }
   } else if (!rootFiles.has(entry.name) && !/^\.env(?:\..+)?$/.test(entry.name)) {
-    problems.push(`Unexpected root file: ${entry.name}. Use generated-output/ for results or development-tools/ for scripts.`);
+    problems.push(`Unexpected root file: ${entry.name}. Use verification-records/ for results, generated-output/ for output, or development-tools/ for scripts.`);
   }
 }
 

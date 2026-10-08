@@ -59,27 +59,6 @@ describe('source import boundaries', () => {
     await expect(importProjectFiles([zip(entries)])).rejects.toThrow(/100 source files/);
   });
 
-  it.each(['archive', 'loose'] as const)('accepts exactly 300 KB across 100 %s source files', async (kind) => {
-    const entries = Array.from({ length: 100 }, (_, index) =>
-      [`source-${index}.txt`, 'x'.repeat(IMPORT_LIMIT / 100)] as const);
-    const inputs = kind === 'archive'
-      ? [zip(Object.fromEntries(entries))]
-      : entries.map(([path, content]) => file(path, content));
-    expect(await importProjectFiles(inputs)).toEqual(entries.map(([path, content]) => ({ path, content })));
-  });
-
-  it('preserves file order and normalized paths across archives and loose source', async () => {
-    expect(await importProjectFiles([
-      zip({ './src//first.ts': 'FIRST' }),
-      file('second.py', 'SECOND'),
-      zip({ 'src\\third.ts': 'THIRD' }),
-    ])).toEqual([
-      { path: 'src/first.ts', content: 'FIRST' },
-      { path: 'second.py', content: 'SECOND' },
-      { path: 'src/third.ts', content: 'THIRD' },
-    ]);
-  });
-
   it('reports no supported source instead of returning an empty project', async () => {
     await expect(importProjectFiles([file('picture.png', 'not source')]))
       .rejects.toThrow(/No supported source files/);

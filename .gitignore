@@ -2,10 +2,5 @@ node_modules/
 .env*
 !.env.example
 .convex/
-.vercel/
 generated-output/
 *.local
-.agents/
-.claude/
-.claude.json
-skills-lock.json
